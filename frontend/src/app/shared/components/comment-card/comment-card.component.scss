@@ -1,0 +1,73 @@
+@import "../../../../assets/styles/variables";
+@import "../../../../assets/styles/mixins";
+
+.comment-card {
+  .comment-card-head {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+
+    .comment-card-avatar {
+      width: 60px;
+      height: 60px;
+      border: 2px solid $blue-color;
+      box-sizing: border-box;
+      border-radius: 50%;
+      background-color: #B9D5FD;
+      background-image: url("../../../../assets/images/page/user-avatar.png");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    .comment-card-info {
+      margin-left: 26px;
+      @include montserrat-600;
+
+      .comment-card-user-name {
+        font-size: 18px;
+        color: $blue-color;
+        margin-bottom: 10px;
+      }
+
+      .comment-card-date {
+        font-size: 14px;
+        color: $disabled-color;
+      }
+    }
+  }
+
+  .comment-card-text {
+    font-size: 14px;
+    line-height: 130%;
+    color: $base-color;
+    margin-bottom: 39px;
+  }
+
+  .comment-card-actions {
+    display: flex;
+    align-items: center;
+
+    .comment-card-action {
+      display: flex;
+      align-items: center;
+
+      @include montserrat-600;
+      font-size: 14px;
+      color: $base-color;
+      margin-right: 15px;
+
+      button {
+        border: none;
+        background: transparent;
+        cursor: pointer;
+        margin-left: 3px;
+
+        &.active svg path {
+          stroke: $blue-color;
+        }
+      }
+    }
+
+  }
+}

@@ -1,0 +1,98 @@
+@import "../../../../assets/styles/variables";
+@import "../../../../assets/styles/mixins";
+
+.blog {
+  padding-top: 80px;
+  padding-bottom: 120px;
+
+  .container {
+    .blog-title {
+      @include head-lora-38;
+      margin-bottom: 40px;
+    }
+
+    .blog-head {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 40px;
+
+      .blog-applied-filters {
+        display: flex;
+        flex-wrap: wrap;
+
+        .blog-applied-filter {
+          border: 1px solid $blue-color;
+          border-radius: 5px;
+          font-size: 16px;
+          color: $blue-color;
+          padding: 8px 20px;
+          display: flex;
+          align-items: center;
+          margin-right: 20px;
+          margin-bottom: 20px;
+
+          a {
+            text-decoration: none;
+            cursor: pointer;
+            display: flex;
+            margin-left: 8px;
+          }
+        }
+      }
+    }
+
+    .blog-articles {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 40px 24px;
+      margin-bottom: 60px;
+    }
+
+    .pagination {
+      margin-top: 79px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .pagination-arrow {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &.disabled svg {
+          fill: $disabled-color;
+        }
+      }
+
+      .pagination-pages {
+        margin-left: 30px;
+        margin-right: 30px;
+        display: flex;
+        align-items: center;
+
+        & div.hide {
+          display: none;
+        }
+
+        a.pagination-page {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          text-decoration: none;
+          width: 28px;
+          height: 60px;
+          margin-right: 10px;
+          margin-left: 10px;
+          cursor: pointer;
+          font-size: 20px;
+          color: $base-color;
+
+          &.active {
+            color: $blue-color;
+          }
+        }
+      }
+    }
+  }
+}

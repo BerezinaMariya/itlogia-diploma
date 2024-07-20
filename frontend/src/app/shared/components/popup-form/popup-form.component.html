@@ -1,0 +1,54 @@
+<div class="popup-form" [formGroup]="popupForm">
+  <div class="popup-inputs">
+    <div class="popup-input" *ngIf="popupType === 'order'">
+      <select class="input" formControlName="service"
+             [ngStyle]="{'border-color': popupForm.get('service')?.invalid
+          && (popupForm.get('service')?.dirty || popupForm.get('service')?.touched) ? 'red' : ''}">
+        <option value="{{serviceName}}">{{serviceName ? serviceName : 'Выберете услугу'}}</option>
+        <option value="{{service.name}}" *ngFor="let service of services">{{service.name}}</option>
+      </select>
+      <div class="invalid-feedback"
+           *ngIf="popupForm.get('service')?.invalid
+                   && (popupForm.get('service')?.touched || popupForm.get('service')?.dirty)
+                   && popupForm.get('service')?.errors?.['required']">
+        Укажите услугу
+      </div>
+    </div>
+    <div class="popup-input">
+      <input type="text" class="input" placeholder="Ваше имя" formControlName="name"
+             [ngStyle]="{'border-color': popupForm.get('name')?.invalid
+          && (popupForm.get('name')?.dirty || popupForm.get('name')?.touched) ? 'red' : ''}">
+      <div class="invalid-feedback"
+           *ngIf="popupForm.get('name')?.invalid
+                   && (popupForm.get('name')?.touched || popupForm.get('name')?.dirty)
+                   && popupForm.get('name')?.errors?.['required']">
+        Укажите Ваше имя
+      </div>
+      <div class="invalid-feedback"
+           *ngIf="popupForm.get('name')?.invalid
+                   && (popupForm.get('name')?.touched || popupForm.get('name')?.dirty)
+                   && popupForm.get('name')?.errors?.['pattern']">
+        Имя может содержать русские буквы и пробелы. Каждое новое слово должно начинаться с большой буквы
+      </div>
+    </div>
+    <div class="popup-input">
+      <input type="text" class="input" placeholder="Ваш номер телефона" mask="+0 (000) 000-00-00" formControlName="phone"
+             [ngStyle]="{'border-color': popupForm.get('phone')?.invalid
+          && (popupForm.get('phone')?.dirty || popupForm.get('phone')?.touched) ? 'red' : ''}">
+      <div class="invalid-feedback"
+           *ngIf="popupForm.get('phone')?.invalid
+                   && (popupForm.get('phone')?.touched || popupForm.get('phone')?.dirty)
+                   && popupForm.get('phone')?.errors?.['required']">
+        Укажите номер телефона
+      </div>
+    </div>
+  </div>
+  <div class="popup-button">
+    <button class="button" [disabled]="popupForm.invalid" (click)="sendRequest()">
+      {{popupFormButtonText}}
+    </button>
+  </div>
+</div>
+
+<app-popup [popupTitle]="'Спасибо за вашу заявку!'" [popupButtonText]="'Окей'"></app-popup>
+

@@ -1,0 +1,47 @@
+@import "variables";
+@import "mixins";
+@import "popup-form";
+
+.cdk-dialog-container {
+  position: relative;
+  width: 727px !important;
+  min-height: 489px !important;
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid $blue-color;
+  border-radius: 10px;
+  background: #FFFFFF;
+
+  .popup-close-button {
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    background: url("../../assets/images/close-button.png") center no-repeat;
+    border: 0;
+    cursor: pointer;
+  }
+
+  h1 {
+    @include head-lora-38;
+    text-align: center;
+    line-height: 130%;
+    margin-bottom: 20px;
+    max-width: 450px;
+  }
+
+  .popup-content {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 14px;
+  }
+
+  .popup-actions {
+    margin: 40px 0 0;
+    padding: 0;
+  }
+}

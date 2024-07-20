@@ -1,0 +1,11 @@
+<ng-template #popup>
+  <button class="popup-close-button" (click)="close()"></button>
+  <h1>{{popupTitle}}</h1>
+  <div class="popup-content">
+    <div *ngIf="popupType === 'thanks'">Мы свяжемся с вами при первой же возможности.</div>
+    <app-popup-form *ngIf="popupType !== 'thanks'" [popupType]="popupType" [serviceName]="serviceName" [services]="services"></app-popup-form>
+  </div>
+  <div class="popup-actions" *ngIf="popupButtonText">
+    <button (click)="close()" class="small-button">{{popupButtonText}}</button>
+  </div>
+</ng-template>

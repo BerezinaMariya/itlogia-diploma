@@ -1,0 +1,37 @@
+@import "../../../../assets/styles/variables";
+@import "../../../../assets/styles/mixins";
+
+.nav-menu {
+  margin-right: 127px;
+
+  nav ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+
+    li {
+      margin-right: 20px;
+      list-style: none;
+
+      a {
+        color: $base-color;
+        cursor: pointer;
+        text-decoration: none;
+      }
+
+      &.active a {
+        color: $blue-color;
+      }
+    }
+  }
+
+  &.medium {
+    nav ul li {
+      margin-right: 30px;
+
+      a {
+        @include montserrat-500;
+      }
+    }
+  }
+}

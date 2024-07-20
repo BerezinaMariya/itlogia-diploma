@@ -1,0 +1,75 @@
+@import "../../../assets/styles/variables";
+@import "../../../assets/styles/mixins";
+
+@counter-style letters {
+  system: fixed;
+  symbols: а б в г д е ж з и к;
+  suffix: ") ";
+}
+
+.policy {
+  padding-top: 60px;
+  padding-bottom: 60px;
+
+  font-size: 14px;
+
+  .container {
+    .block {
+      margin-bottom: 40px;
+
+      .block-title {
+        @include montserrat-500;
+        font-size: 20px;
+        color: $blue-color;
+        margin-bottom: 20px;
+      }
+    }
+
+    .conditions {
+      .conditions-text-list {
+        list-style: letters;
+      }
+    }
+
+    .consent {
+      .consent-content {
+        .consent-title {
+          @include montserrat-500;
+          font-size: 20px;
+          color: $blue-color;
+          margin-bottom: 20px;
+        }
+
+        /* 1-й уровень */
+        ol {
+          @include montserrat-500;
+          list-style: none;
+          counter-reset: num;
+        }
+        li {
+          counter-increment: num;
+          margin-bottom: 20px;
+        }
+        li::before {
+          content: counter(num) '.';
+        }
+
+        /* 2-й уровень */
+        ol ol {
+          @include montserrat-400;
+          margin-top: 20px;
+          list-style: none;
+          counter-reset: num2;
+        }
+        ol ol > li {
+          margin-bottom: 20px;
+          counter-increment: num2;
+        }
+        ol ol > li::before {
+          content: counter(num) '.' counter(num2) '.';
+        }
+      }
+    }
+  }
+}
+

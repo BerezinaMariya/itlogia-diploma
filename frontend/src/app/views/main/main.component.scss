@@ -1,0 +1,238 @@
+@import "../../../assets/styles/variables";
+@import "../../../assets/styles/mixins";
+
+.main-page-title {
+  @include head-lora-38;
+  line-height: 130%;
+}
+
+.banners {
+  padding-bottom: 60px;
+
+  .carousel-content {
+    position: relative;
+
+    .banners-actions {
+      position: absolute;
+      left: 80px;
+      bottom: 98px;
+    }
+  }
+}
+
+.services {
+  padding-top: 60px;
+  padding-bottom: 60px;
+
+  .services-title {
+    @include head-lora-38;
+    margin-bottom: 40px;
+  }
+
+  .services-items {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 26px;
+  }
+}
+
+.about {
+  padding-top: 60px;
+  padding-bottom: 60px;
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+
+
+    .about-content {
+      margin-left: 68px;
+
+      .about-title {
+        margin-bottom: 20px;
+      }
+
+      .about-info {
+        font-size: 14px;
+        line-height: 130%;
+        margin-bottom: 40px;
+
+        span {
+          @include montserrat-500;
+        }
+      }
+
+      .about-advantages {
+        @include head-lora-26;
+        margin-bottom: 20px;
+      }
+
+      .about-advantages-items {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px 71px;
+
+        .about-advantage {
+          display: flex;
+          align-items: center;
+
+          .about-advantage-number {
+            position: relative;
+
+            &:first-child {
+              padding-left: 11px;
+            }
+
+            .about-advantage-index {
+
+              @include lora-500;
+              font-size: 50px;
+              color: $blue-color;
+              text-align: center;
+              width: 40px;
+
+              &::before {
+                content: "";
+                position: absolute;
+                top: -3px;
+                left: 10px;
+                width: 40px;
+                height: 40px;
+                background: #B9D5FD;
+                border-radius: 50%;
+                z-index: -1;
+                margin-right: 20px;
+              }
+            }
+          }
+
+          .about-advantage-text {
+            margin-left: 20px;
+            font-size: 14px;
+            line-height: 130%;
+
+            span {
+              @include montserrat-500;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.articles {
+  padding-top: 60px;
+  padding-bottom: 60px;
+
+  .articles-title {
+    margin-bottom: 40px;
+  }
+
+  .articles-items {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    margin-bottom: 40px;
+  }
+
+  .articles-actions {
+    display: flex;
+    justify-content: end;
+
+    a {
+      display: flex;
+      align-items: center;
+      @include montserrat-500;
+      font-size: 20px;
+      color: $blue-color;
+      text-decoration: none;
+
+      svg {
+        margin-left: 14px;
+      }
+    }
+  }
+}
+
+.reviews {
+  padding-top: 60px;
+  padding-bottom: 60px;
+
+  .reviews-title {
+    margin-bottom: 20px;
+  }
+
+  .review-item {
+    width: 396px;
+    height: 267px;
+    padding: 30px;
+    box-sizing: border-box;
+    border: 2px solid $blue-color;
+    border-radius: 5px;
+
+    .review-item-head {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+
+      .review-item-image {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        margin-right: 26px;
+      }
+
+      .review-item-name {
+        @include montserrat-600;
+        font-size: 18px;
+        color: $blue-color;
+      }
+    }
+
+    .review-item-text {
+      font-size: 16px;
+      line-height: 130%;
+    }
+  }
+}
+
+.contacts {
+  padding-top: 60px;
+  padding-bottom: 120px;
+
+  .container {
+    display: flex;
+
+    .contacts-info {
+      margin-left: 26px;
+
+      .contacts-title {
+        margin-bottom: 20px;
+      }
+
+      .contact {
+        margin-bottom: 20px;
+
+        .contact-title {
+          @include montserrat-500;
+          font-size: 20px;
+          color: $blue-color;
+          margin-bottom: 10px;
+        }
+
+        .contact-info {
+          font-size: 14px;
+          line-height: 130%;
+          display: flex;
+
+          a {
+            margin-right: 20px;
+            color: $base-color;
+            text-decoration: none;
+          }
+        }
+      }
+    }
+  }
+}

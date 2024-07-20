@@ -1,0 +1,50 @@
+@import "../../../../assets/styles/variables";
+@import "../../../../assets/styles/mixins";
+
+.service-card {
+  width: 290px;
+  height: 498px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  .service-card-content {
+    margin-bottom: 15px;
+
+    .service-card-image {
+      width: 290px;
+      height: 290px;
+      border-radius: 5px;
+      margin-bottom: 15px;
+    }
+
+    .service-card-name {
+      @include montserrat-500;
+      font-size: 20px;
+      color: $blue-color;
+      margin-bottom: 10px;
+    }
+
+    .service-card-text {
+      font-size: 14px;
+      line-height: 130%;
+      color: $base-color;
+    }
+  }
+
+  .service-card-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .service-card-price {
+      @include montserrat-600;
+      font-size: 20px;
+      color: $blue-color;
+    }
+
+    .service-card-actions button {
+      width: 163px;
+    }
+  }
+}

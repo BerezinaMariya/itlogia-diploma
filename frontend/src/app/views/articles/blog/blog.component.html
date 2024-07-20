@@ -1,0 +1,88 @@
+<div class="blog">
+  <div class="container">
+
+    <div class="blog-title">Блог</div>
+
+    <div class="blog-head">
+      <div class="blog-applied-filters">
+        <div class="blog-applied-filter" *ngFor="let appliedFilter of appliedFilters">
+          <span>{{appliedFilter.name}}</span>
+          <a (click)="removeAppliedFilter(appliedFilter)">
+            <svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g clip-path="url(#clip0_11207_586)">
+                <line x1="1.93553" y1="3.15002" x2="13.9563" y2="15.1708" stroke="#709FDC" stroke-linecap="round"/>
+                <line x1="13.9236" y1="3.12984" x2="1.90278" y2="15.1507" stroke="#709FDC" stroke-linecap="round"/>
+              </g>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="blog-filter">
+        <button [cdkMenuTriggerFor]="menu" class="example-standalone-trigger">
+          Фильтр
+          <svg class="arrow" width="20" height="21" viewBox="0 0 20 21" fill="none"
+               xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M10 14.5C9.41668 14.5 8.83335 14.275 8.39168 13.8334L2.95835 8.40003C2.71668 8.15837 2.71668 7.75837 2.95835 7.5167C3.20002 7.27503 3.60002 7.27503 3.84168 7.5167L9.27502 12.95C9.67502 13.35 10.325 13.35 10.725 12.95L16.1583 7.5167C16.4 7.27503 16.8 7.27503 17.0417 7.5167C17.2833 7.75837 17.2833 8.15837 17.0417 8.40003L11.6083 13.8334C11.1667 14.275 10.5833 14.5 10 14.5Z"
+              fill="#071739"/>
+          </svg>
+        </button>
+        <ng-template #menu>
+          <div class="example-menu" cdkMenu>
+            <button class="example-menu-item" cdkMenuItem *ngFor="let category of categories"
+                    (click)="updateActiveCategories(category)"
+                    [class.active]="activeParams.categories.includes(category.url)">
+              {{category.name}}
+              <ng-container *ngIf="!activeParams.categories.includes(category.url); else menuIcon">
+                <svg width="12" height="11" viewBox="0 0 12 11"
+                     fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M11.12 4.904H6.656V0.511999H5.144V4.904H0.68V6.32H5.144V10.688H6.656V6.32H11.12V4.904Z"
+                        fill="#BEBEBE"/>
+                </svg>
+              </ng-container>
+              <ng-template #menuIcon>
+                <svg width="12" height="3" viewBox="0 0 7 3"
+                     fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M0.44 2.24H6.728V0.752H0.44V2.24Z" fill="#071739"/>
+                </svg>
+              </ng-template>
+            </button>
+          </div>
+        </ng-template>
+      </div>
+    </div>
+
+    <div class="blog-articles">
+      <div class="blog-article" *ngFor="let article of articles">
+        <app-article-card [article]="article"></app-article-card>
+      </div>
+    </div>
+
+    <div class="pagination" *ngIf="pages.length > 1">
+      <div class="pagination-arrow" (click)="openPrevPage()"
+           [class.disabled]="activeParams.page ? activeParams.page === 1 : true">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#709FDC">
+          <path d="M400-80 0-480l400-400 71 71-329 329 329 329-71 71Z"/>
+        </svg>
+      </div>
+
+      <div class="pagination-pages">
+        <div [class.hide]="activeParams.page ? activeParams.page < 3 : true">. . .</div>
+        <a class="pagination-page" (click)="openPage(page)"
+           [class.active]="activeParams.page ? activeParams.page === page : (page === 1)"
+           *ngFor="let page of viewPages">{{page}}
+        </a>
+        <div [class.hide]="activeParams.page ? activeParams.page > (pages!.length - 2): true">. . .</div>
+      </div>
+
+      <div class="pagination-arrow" (click)="openNextPage()"
+           [class.disabled]="activeParams.page ? activeParams.page === pages.length : false">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#709FDC">
+          <path d="m321-80-71-71 329-329-329-329 71-71 400 400L321-80Z"/>
+        </svg>
+      </div>
+    </div>
+
+  </div>
+</div>

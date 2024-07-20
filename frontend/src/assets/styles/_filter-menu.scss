@@ -1,0 +1,76 @@
+@import "variables";
+@import "mixins";
+
+.example-standalone-trigger {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-width: 148px;
+  background-color: transparent;
+  padding: 12px 23px;
+  border: 2px solid transparent;
+  cursor: pointer;
+  user-select: none;
+  @include montserrat-400;
+  font-size: 16px;
+  line-height: 130%;
+
+  &[aria-expanded='true'] {
+    background-color: #B9D5FD;
+    min-width: 257px;
+    border: 2px solid $blue-color;
+    border-bottom: none;
+    border-radius: 5px 5px 0 0;
+
+    .arrow {
+      transform: rotate(180deg);
+    }
+  }
+}
+
+.example-menu {
+  display: flex;
+  flex-direction: column;
+  min-width: 257px;
+  background: #FFFFFF;
+  border: 2px solid $blue-color;
+  border-top: none;
+  border-radius: 0 0 5px 5px;
+  box-sizing: border-box;
+
+  .example-menu-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex: 1;
+    border: none;
+    padding: 12px 23px;
+    background-color: transparent;
+    cursor: pointer;
+    user-select: none;
+
+    @include montserrat-400;
+    font-size: 16px;
+    line-height: 130%;
+    color: $disabled-color;
+
+    &.active {
+      background-color: #B9D5FD;
+      color: $base-color;
+    }
+
+    &:hover {
+      background-color: #B9D5FD;
+    }
+  }
+
+
+
+
+
+
+
+
+}
+
+

@@ -1,0 +1,61 @@
+@import "mixins";
+
+.carousel {
+  position: relative;
+
+  .carousel-arrows {
+    position: absolute;
+    top: 47%;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 100;
+
+    &.banners-carousel-arrows {
+      width: 100%;
+      padding: 0 11px;
+      right: 0;
+    }
+
+    &.reviews-carousel-arrows {
+      left: -25px;
+      width: calc(100% + 50px);
+
+    }
+
+    a {
+      cursor: pointer;
+    }
+  }
+
+  .owl-theme .owl-nav.disabled + .owl-dots {
+    position: absolute;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    right: 0;
+    bottom: 4%;
+    z-index: 5;
+
+
+    .owl-theme .owl-dots .owl-dot.active span, .owl-theme .owl-dots .owl-dot:hover span {
+      background: transparent !important;
+    }
+  }
+
+  .owl-theme .owl-dots .owl-dot {
+    span {
+      background: transparent !important;
+      border: 1px solid #FFFFFF !important;
+      margin: 0 10px !important;
+      box-sizing: border-box;
+    }
+
+    &.active span {
+      background: #FFFFFF !important;
+    }
+  }
+
+}

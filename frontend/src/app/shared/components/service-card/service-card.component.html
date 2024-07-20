@@ -1,0 +1,17 @@
+<div class="service-card" *ngIf="service">
+  <div class="service-card-content">
+    <div class="service-card-image">
+      <img src="./assets/images/services/{{service.image}}" alt="{{service.name}}">
+    </div>
+    <div class="service-card-name">{{service.name}}</div>
+    <div class="service-card-text">{{service.text}}</div>
+  </div>
+  <div class="service-card-info">
+    <div class="service-card-price">От&nbsp;{{service.price | priceFormat}}&#8381;</div>
+    <div class="service-card-actions">
+      <button class="button" (click)="openDialog()">Подробнее</button>
+    </div>
+  </div>
+</div>
+
+<app-popup [popupTitle]="'Заявка на услугу'" [serviceName]="service.name" [popupType]="popupType"></app-popup>

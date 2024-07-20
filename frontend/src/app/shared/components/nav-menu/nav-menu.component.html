@@ -1,0 +1,21 @@
+<div class="nav-menu" [class.medium]="menu === 'header'">
+  <nav>
+    <ul>
+      <li class="nav-menu-item" id="services-menu-item">
+        <a routerLink="/" (click)="onPageScroll('services', $event)">Услуги</a>
+      </li>
+      <li class="nav-menu-item" [class.medium]="menu === 'header'" id="about-menu-item">
+        <a routerLink="/" (click)="onPageScroll('about', $event)">О нас</a>
+      </li>
+      <li class="nav-menu-item" [class.medium]="menu === 'header'" id="articles-menu-item">
+        <a routerLink="/" (click)="onPageScroll('articles', $event)">Статьи</a>
+      </li>
+      <li class="nav-menu-item" [class.medium]="menu === 'header'" id="reviews-menu-item">
+        <a routerLink="/" (click)="onPageScroll('reviews', $event)">Отзывы</a>
+      </li>
+      <li class="nav-menu-item" [class.medium]="menu === 'header'" id="contacts-menu-item">
+        <a routerLink="/" (click)="onPageScroll('contacts', $event)">Контакты</a>
+      </li>
+    </ul>
+  </nav>
+</div>

@@ -1,0 +1,114 @@
+@import "variables";
+@import "mixins";
+@import "popup";
+@import "carousel";
+@import "filter-menu";
+
+html, body {
+  height: 100%;
+
+  margin: 0;
+  padding: 0;
+
+  @include montserrat-400;
+  color: $base-color;
+}
+
+.mat-body, .mat-body-1, .mat-typography {
+  @include montserrat-400;
+}
+
+.mat-h3, .mat-subheading-2, .mat-typography .mat-h3, .mat-typography .mat-subheading-2, .mat-typography h3 {
+  @include montserrat-500;
+  font-size: 20px;
+  color: $blue-color;
+  margin-bottom: 20px;
+  margin-top: 40px;
+
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
+.mat-body p, .mat-body-1 p, .mat-typography .mat-body p, .mat-typography .mat-body-1 p, .mat-typography p {
+  margin-bottom: 20px;
+  white-space: pre-line;
+
+  b {
+
+  }
+}
+
+.container {
+  max-width: $container-width;
+  margin: 0 auto;
+}
+
+.button {
+  text-align: center;
+  padding: 15px 30px;
+  background: $blue-color;
+  border-radius: 5px;
+  box-sizing: border-box;
+  cursor: pointer;
+  border: 0;
+
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 130%;
+  color: #FFFFFF;
+
+  &:disabled {
+    background: $disabled-color;
+    cursor: not-allowed;
+  }
+}
+
+.small-button {
+  text-align: center;
+  padding: 10px 20px;
+  background: $blue-color;
+  border-radius: 5px;
+  box-sizing: border-box;
+  cursor: pointer;
+  border: 0;
+
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 130%;
+  color: #FFFFFF;
+
+  &:disabled {
+    background: $disabled-color;
+    cursor: not-allowed;
+  }
+}
+
+a.button {
+  text-decoration: none;
+  display: inline-block;
+}
+
+.input {
+  padding: 17px 20px;
+  box-sizing: border-box;
+  border: 2px solid $blue-color;
+  border-radius: 3px;
+  outline: none;
+
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: $blue-color;
+}
+
+textarea {
+font-family: 'Montserrat', sans-serif;
+font-weight: 400;
+font-size: 14px;
+color: $blue-color;
+}
