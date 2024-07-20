@@ -13,7 +13,6 @@ import {MatSnackBar} from "@angular/material/snack-bar";
 import {CommentActionType} from "../../../../types/comment-action.type";
 import {DefaultResponseType} from "../../../../types/default-response.type";
 import {CommentActionsType} from "../../../../types/comment-actions.type";
-import {keyframes} from "@angular/animations";
 
 @Component({
   selector: 'app-article',

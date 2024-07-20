@@ -56,13 +56,26 @@ export class BlogComponent implements OnInit, OnDestroy {
             });
           }
         });
-
         this.getArticles();
       }));
   }
 
   ngOnDestroy() {
     this.subscription?.unsubscribe();
+  }
+
+  getArticles() {
+    this.subscription.add(this.articleService.getArticles(this.activeParams)
+      .subscribe((data: ArticlesResponseType) => {
+        this.pages = [];
+        for (let i = 1; i <= data.pages; i++) {
+          this.pages.push(i);
+        }
+        this.viewPages = this.pages;
+        this.articles = data.items;
+
+        this.hidePages();
+      }));
   }
 
   removeAppliedFilter(appliedFilter: AppliedFilterType) {
@@ -99,20 +112,6 @@ export class BlogComponent implements OnInit, OnDestroy {
     });
   }
 
-  getArticles() {
-    this.subscription.add(this.articleService.getArticles(this.activeParams)
-      .subscribe((data: ArticlesResponseType) => {
-        this.pages = [];
-        for (let i = 1; i <= data.pages; i++) {
-          this.pages.push(i);
-        }
-        this.viewPages = this.pages;
-        this.articles = data.items;
-
-        this.hidePages();
-      }));
-  }
-
   openPage(page: number) {
     this.activeParams.page = page;
 
@@ -143,8 +142,9 @@ export class BlogComponent implements OnInit, OnDestroy {
 
   hidePages() {
     this.viewPages = [];
+    this.activeParams.page = this.activeParams.page ? this.activeParams.page : 1;
     for (let i: number = 1; i <= this.pages.length; i++) {
-      if (i === this.activeParams.page || i === this.activeParams!.page! + 1 || i === this.activeParams!.page! - 1) {
+      if (i === this.activeParams.page || i === this.activeParams.page + 1 || i === this.activeParams.page - 1) {
         this.viewPages.push(i);
       }
     }
