@@ -4,10 +4,10 @@
 
 export const environment = {
   production: false,
-  // api: "https://angularappexample.ru/api/",
-  // serverStaticPath: "https://angularappexample.ru/images/"
-  api: "http://localhost:3000/api/",
-  serverStaticPath: "http://localhost:3000/images/"
+  api: "https://angularappexample.ru/api/",
+  serverStaticPath: "https://angularappexample.ru/images/"
+  // api: "http://localhost:3000/api/",
+  // serverStaticPath: "http://localhost:3000/images/"
 };
 
 /*
