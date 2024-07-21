@@ -60,21 +60,21 @@ export class ArticleComponent implements OnInit, OnDestroy {
           this.relatedArticles = data;
         }));
     }));
-
-    const metaTitle: HTMLMetaElement = document.getElementById('metaTitle') as HTMLMetaElement;
-    metaTitle.content = this.article.title;
-
-    const metaDescription: HTMLMetaElement = document.getElementById('metaDescription') as HTMLMetaElement;
-    metaDescription.content = this.article.description;
-
-    const metaImage: HTMLMetaElement = document.getElementById('metaImage') as HTMLMetaElement;
-    metaImage.content = environment.serverStaticPath + this.article.image;
-
-    const metaUrl: HTMLMetaElement = document.getElementById('metaUrl') as HTMLMetaElement;
-    metaUrl.content = "https://angularappexample.ru/articles/" + this.article.url;
-
-    const metaSiteName: HTMLMetaElement = document.getElementById('metaSiteName') as HTMLMetaElement;
-    metaSiteName.content = this.article.title;
+    //
+    // const metaTitle: HTMLMetaElement = document.getElementById('metaTitle') as HTMLMetaElement;
+    // metaTitle.content = this.article.title;
+    //
+    // const metaDescription: HTMLMetaElement = document.getElementById('metaDescription') as HTMLMetaElement;
+    // metaDescription.content = this.article.description;
+    //
+    // const metaImage: HTMLMetaElement = document.getElementById('metaImage') as HTMLMetaElement;
+    // metaImage.content = environment.serverStaticPath + this.article.image;
+    //
+    // const metaUrl: HTMLMetaElement = document.getElementById('metaUrl') as HTMLMetaElement;
+    // metaUrl.content = "https://angularappexample.ru/articles/" + this.article.url;
+    //
+    // const metaSiteName: HTMLMetaElement = document.getElementById('metaSiteName') as HTMLMetaElement;
+    // metaSiteName.content = this.article.title;
   }
 
   ngOnDestroy() {
