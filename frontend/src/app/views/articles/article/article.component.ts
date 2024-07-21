@@ -161,26 +161,30 @@ export class ArticleComponent implements OnInit, OnDestroy {
 
     if (head) {
       if (socialName === 'vk' || socialName === 'facebook') {
-        const metaTitle: HTMLMetaElement = document.getElementById('metaTitle') as HTMLMetaElement;
-        metaTitle.content = this.article.title;
+        //   const metaTitle: HTMLMetaElement = document.getElementById('metaTitle') as HTMLMetaElement;
+        //   metaTitle.content = this.article.title;
+        //
+        //   const metaDescription: HTMLMetaElement = document.getElementById('metaDescription') as HTMLMetaElement;
+        //   metaDescription.content = this.article.description;
+        //
+        //   const metaImage: HTMLMetaElement = document.getElementById('metaImage') as HTMLMetaElement;
+        //   metaImage.content = environment.serverStaticPath + this.article.image;
+        //
+        //
+        //   const metaUrl: HTMLMetaElement = document.getElementById('metaUrl') as HTMLMetaElement;
+        //   metaUrl.content = "https://angularappexample.ru/articles/" + this.article.url;
+        //
+        //   const metaSiteName: HTMLMetaElement = document.getElementById('metaSiteName') as HTMLMetaElement;
+        //   metaSiteName.content = this.article.title;
+        // } else if (socialName === 'instagram') {
+        //   console.log('instagram');
+        // }
 
-        const metaDescription: HTMLMetaElement = document.getElementById('metaDescription') as HTMLMetaElement;
-        metaDescription.content = this.article.description;
+        setTimeout(() => {
+          window.open('https://vk.com//share.php?url=https://angularappexample.ru/articles/' + this.article.url, '_blank');
+        }, 500);
 
-        const metaImage: HTMLMetaElement = document.getElementById('metaImage') as HTMLMetaElement;
-        metaImage.content = environment.serverStaticPath + this.article.image;
-
-
-        const metaUrl: HTMLMetaElement = document.getElementById('metaUrl') as HTMLMetaElement;
-        metaUrl.content = "https://angularappexample.ru/articles/" + this.article.url;
-
-        const metaSiteName: HTMLMetaElement = document.getElementById('metaSiteName') as HTMLMetaElement;
-        metaSiteName.content = this.article.title;
-      } else if (socialName === 'instagram') {
-        console.log('instagram');
       }
-
-      window.open('https://vk.com//share.php?url=https://angularappexample.ru/articles/' + this.article.url, '_blank');
     }
   }
 
