@@ -13,6 +13,7 @@ import {MatSnackBar} from "@angular/material/snack-bar";
 import {CommentActionType} from "../../../../types/comment-action.type";
 import {DefaultResponseType} from "../../../../types/default-response.type";
 import {CommentActionsType} from "../../../../types/comment-actions.type";
+import {Meta} from "@angular/platform-browser";
 
 @Component({
   selector: 'app-article',
@@ -38,11 +39,18 @@ export class ArticleComponent implements OnInit, OnDestroy {
               private articleService: ArticleService,
               private commentService: CommentService,
               private activatedRoute: ActivatedRoute,
-              private _snackBar: MatSnackBar) {
+              private _snackBar: MatSnackBar,
+              private metaService: Meta) {
     this.isLogged = this.authService.getIsLoggedIn();
   }
 
   ngOnInit(): void {
+    this.metaService.addTag({ property: 'og:title', content: this.article.title });
+    this.metaService.addTag({ property: 'og:description', content: this.article.description });
+    this.metaService.addTag({ property: 'og:image', content: this.serverStaticPath + this.article.image });
+    this.metaService.addTag({ property: 'og:url', content: 'https://angularappexample.ru/articles/' + this.article.url });
+    this.metaService.addTag({ property: 'og:site_name', content: 'АйтиШторм' });
+
     this.subscription.add(this.authService.isLogged$.subscribe((isLoggedIn: boolean) => {
       this.isLogged = isLoggedIn;
     }));

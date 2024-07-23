@@ -142,12 +142,15 @@ export class BlogComponent implements OnInit, OnDestroy {
 
   hidePages() {
     this.viewPages = [];
-    this.activeParams.page = this.activeParams.page ? this.activeParams.page : 1;
-    for (let i: number = 1; i <= this.pages.length; i++) {
-      if (i === this.activeParams.page || i === this.activeParams.page + 1 || i === this.activeParams.page - 1) {
-        this.viewPages.push(i);
+    this.viewPages = this.pages.map(page => {
+      this.activeParams.page = this.activeParams.page ? this.activeParams.page : 1;
+      let viewPage: number = 0;
+
+      if (page === this.activeParams.page || page === this.activeParams.page + 1 || page === this.activeParams.page - 1) {
+        viewPage = page;
       }
-    }
+      return viewPage;
+    });
   }
 
 }
