@@ -45,12 +45,6 @@ export class ArticleComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.metaService.addTag({ property: 'og:title', content: this.article.title });
-    this.metaService.addTag({ property: 'og:description', content: this.article.description });
-    this.metaService.addTag({ property: 'og:image', content: this.serverStaticPath + this.article.image });
-    this.metaService.addTag({ property: 'og:url', content: 'https://angularappexample.ru/articles/' + this.article.url });
-    this.metaService.addTag({ property: 'og:site_name', content: 'АйтиШторм' });
-
     this.subscription.add(this.authService.isLogged$.subscribe((isLoggedIn: boolean) => {
       this.isLogged = isLoggedIn;
     }));
@@ -59,6 +53,12 @@ export class ArticleComponent implements OnInit, OnDestroy {
       this.subscription.add(this.articleService.getArticle(params['url'])
         .subscribe((data: ArticleType) => {
           this.article = data;
+
+          this.metaService.addTag({ property: 'og:title', content: this.article.title });
+          this.metaService.addTag({ property: 'og:description', content: this.article.description });
+          this.metaService.addTag({ property: 'og:image', content: this.serverStaticPath + this.article.image });
+          this.metaService.addTag({ property: 'og:url', content: 'https://angularappexample.ru/articles/' + this.article.url });
+          this.metaService.addTag({ property: 'og:site_name', content: 'АйтиШторм' });
 
           this.getComments();
         }));
