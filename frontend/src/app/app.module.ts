@@ -17,7 +17,8 @@ import {CarouselModule} from "ngx-owl-carousel-o";
 import {SharedModule} from "./shared/shared.module";
 import {NgxPageScrollModule} from "ngx-page-scroll";
 import {NgxPageScrollCoreModule} from "ngx-page-scroll-core";
-import { PolicyPageComponent } from './views/policy-page/policy-page.component';
+import {PolicyPageComponent} from './views/policy-page/policy-page.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -39,13 +40,15 @@ import { PolicyPageComponent } from './views/policy-page/policy-page.component';
     CarouselModule,
     BrowserModule,
     NoopAnimationsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FontAwesomeModule
   ],
   providers: [
     {provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: {duration: 2500}},
-    {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},
+    {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}
   ],
   bootstrap: [AppComponent]
 })
+
 export class AppModule {
 }
