@@ -18,7 +18,6 @@ import {SharedModule} from "./shared/shared.module";
 import {NgxPageScrollModule} from "ngx-page-scroll";
 import {NgxPageScrollCoreModule} from "ngx-page-scroll-core";
 import {PolicyPageComponent} from './views/policy-page/policy-page.component';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -40,8 +39,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     CarouselModule,
     BrowserModule,
     NoopAnimationsModule,
-    AppRoutingModule,
-    FontAwesomeModule
+    AppRoutingModule
   ],
   providers: [
     {provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: {duration: 2500}},
